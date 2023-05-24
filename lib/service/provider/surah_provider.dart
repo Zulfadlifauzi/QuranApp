@@ -11,4 +11,12 @@ class IndexSurah with ChangeNotifier {
     _indexSurah = bodyResponse;
     notifyListeners();
   }
+
+  var _showSurah;
+  get showSurah => _showSurah;
+  Future fetchShowSurah(int id) async {
+    final bodyResponse = await APISERVICE().fetchShowSurah(id);
+    _showSurah = bodyResponse;
+    notifyListeners();
+  }
 }

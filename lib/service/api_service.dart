@@ -1,13 +1,24 @@
-import 'package:alquranapp/model/surah_index_model.dart';
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 class APISERVICE {
   final String baseUrl = 'https://equran.id/api/v2/';
-  Future<IndexSurah> fetchIndexSurah() async {
+  Future fetchIndexSurah() async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/surat'));
-      final bodyResponse = indexSurahFromJson(response.body);
-      return bodyResponse;
+      final bodyResponse = json.decode(response.body);
+      return bodyResponse['data'];
+    } catch (error) {
+      throw Exception(error.toString());
+    }
+  }
+
+  Future fetchShowSurah(int id) async {
+    try {
+      final response = await http.get(Uri.parse('$baseUrl/surat/$id'));
+      final bodyResponse = json.decode(response.body);
+      return bodyResponse['data'];
     } catch (error) {
       throw Exception(error.toString());
     }

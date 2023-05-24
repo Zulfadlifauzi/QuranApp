@@ -6,23 +6,24 @@
 
 import 'dart:convert';
 
-IndexSurah indexSurahFromJson(String str) =>
-    IndexSurah.fromJson(json.decode(str));
+IndexSurahModel indexSurahFromJson(String str) =>
+    IndexSurahModel.fromJson(json.decode(str));
 
-String indexSurahToJson(IndexSurah data) => json.encode(data.toJson());
+String indexSurahToJson(IndexSurahModel data) => json.encode(data.toJson());
 
-class IndexSurah {
+class IndexSurahModel {
   int? code;
   String? message;
   List<Datum>? data;
 
-  IndexSurah({
+  IndexSurahModel({
     this.code,
     this.message,
     this.data,
   });
 
-  factory IndexSurah.fromJson(Map<String, dynamic> json) => IndexSurah(
+  factory IndexSurahModel.fromJson(Map<String, dynamic> json) =>
+      IndexSurahModel(
         code: json["code"],
         message: json["message"],
         data: json["data"] == null
