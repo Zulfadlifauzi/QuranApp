@@ -66,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           indexSurah.indexSurah[index]['deskripsi'],
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),

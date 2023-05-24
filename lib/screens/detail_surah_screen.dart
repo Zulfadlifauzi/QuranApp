@@ -54,6 +54,7 @@ class _DetailSurahScreenState extends State<DetailSurahScreen> {
                         Text(
                           ayat['teksIndonesia'],
                           textAlign: TextAlign.left,
+                          style: const TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
